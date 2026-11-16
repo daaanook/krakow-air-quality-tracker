@@ -4,7 +4,7 @@ Work in progress (started November 2026). A Python project that collects air qua
 
 **Tools:** Python (requests, pandas, matplotlib, Streamlit, scikit-learn), SQL (SQLite), pytest
 
-See [PLAN.md](PLAN.md) for the 30-day plan. Findings and how to run will be added as the project grows.
+See [PLAN.md](PLAN.md) for the 30-day plan. Findings will be added as the project grows.
 
 ## Data
 
@@ -20,3 +20,14 @@ Source: [Open-Meteo Air Quality API](https://open-meteo.com/en/docs/air-quality-
 
 Attribution: CAMS European air quality forecasts, ENSEMBLE data, via Open-Meteo.
 The API is free for non-commercial use; this is a portfolio project.
+
+## How to run
+
+```
+pip3 install -r requirements.txt
+python3 src/extract.py      # download hourly data, saved to data/raw/
+python3 src/transform.py    # clean the data and print a summary
+python3 -m pytest           # run the tests
+```
+
+`python3 src/extract.py --past-days 30` downloads more days (the API allows up to 92).
