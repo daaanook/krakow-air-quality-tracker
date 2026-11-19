@@ -14,8 +14,7 @@ from datetime import datetime
 from pathlib import Path
 
 import pandas as pd
-import requests
-
+from http_utils import get_json
 from load import DB_PATH, connect
 from transform import to_dataframe
 
@@ -57,9 +56,7 @@ def build_params(past_days):
 
 
 def fetch(past_days=7, timeout=30):
-    response = requests.get(URL, params=build_params(past_days), timeout=timeout)
-    response.raise_for_status()
-    return response.json()
+    return get_json(URL, build_params(past_days), timeout=timeout)
 
 
 def save_raw(payload, raw_dir=RAW_DIR):
