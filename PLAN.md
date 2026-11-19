@@ -15,7 +15,7 @@ Rule: a commit is made only when something real changed (code, analysis, text, t
 | 2 ✅ | Read the API docs, write `src/extract.py` that downloads hourly PM2.5 and PM10 for Krakow and saves raw JSON | `Add air quality extract script` |
 | 3 ✅ | `src/transform.py`: JSON to a pandas table, correct types, handle missing values | `Add transform to clean table` |
 | 4 ✅ | `src/load.py`: SQLite table with a primary key (time, pollutant), repeatable load without duplicates | `Add SQLite loading` |
-| 5 | Add weather data (temperature, wind, humidity) as a second table | `Add weather data` |
+| 5 ✅ | Add weather data (temperature, wind, humidity) as a second table | `Add weather data` |
 | 6 | Make collection incremental (only new hours), add logging and retries | `Add incremental load and logging` |
 | 7 | First tests with pytest for transform and load, journal entry for week 1 | `Add tests, week 1 journal` |
 
