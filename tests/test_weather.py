@@ -3,6 +3,8 @@ import sys
 from pathlib import Path
 from unittest import mock
 
+import requests
+
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
 import load  # noqa: E402
@@ -30,7 +32,7 @@ def test_build_params_contains_variables_and_location():
 def test_fetch_uses_api_and_returns_json():
     fake = mock.Mock()
     fake.json.return_value = PAYLOAD
-    with mock.patch.object(weather.requests, "get", return_value=fake) as get:
+    with mock.patch.object(requests, "get", return_value=fake) as get:
         assert weather.fetch(past_days=2) == PAYLOAD
     assert get.call_args.kwargs["params"]["past_days"] == 2
     fake.raise_for_status.assert_called_once()

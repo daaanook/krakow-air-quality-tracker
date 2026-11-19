@@ -4,6 +4,8 @@ import sys
 from pathlib import Path
 from unittest import mock
 
+import requests
+
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
 import extract  # noqa: E402
@@ -30,7 +32,7 @@ def test_build_params_contains_location_and_pollutants():
 def test_fetch_returns_json_from_api():
     fake_response = mock.Mock()
     fake_response.json.return_value = FAKE_ANSWER
-    with mock.patch.object(extract.requests, "get", return_value=fake_response) as get:
+    with mock.patch.object(requests, "get", return_value=fake_response) as get:
         result = extract.fetch(past_days=2)
     assert result == FAKE_ANSWER
     assert get.call_args.kwargs["params"]["past_days"] == 2
