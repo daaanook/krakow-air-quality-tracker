@@ -12,7 +12,7 @@ import logging
 from datetime import datetime
 from pathlib import Path
 
-import requests
+from http_utils import get_json
 
 log = logging.getLogger(__name__)
 
@@ -35,9 +35,7 @@ def build_params(past_days):
 
 def fetch(past_days=7, timeout=30):
     """Download the data and return it as a Python dictionary."""
-    response = requests.get(URL, params=build_params(past_days), timeout=timeout)
-    response.raise_for_status()  # stops with an error for 4xx / 5xx answers
-    return response.json()
+    return get_json(URL, build_params(past_days), timeout=timeout)  # retries short problems
 
 
 def save_raw(payload, raw_dir=RAW_DIR):
