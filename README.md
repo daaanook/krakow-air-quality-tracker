@@ -24,10 +24,32 @@ The API is free for non-commercial use; this is a portfolio project.
 ## How to run
 
 ```
+python3 -m venv .venv && source .venv/bin/activate
 pip3 install -r requirements.txt
-python3 src/extract.py      # download hourly data, saved to data/raw/
-python3 src/transform.py    # clean the data and print a summary
+python3 src/update.py       # download only the missing days (air quality + weather), save to SQLite
 python3 -m pytest           # run the tests
 ```
 
-`python3 src/extract.py --past-days 30` downloads more days (the API allows up to 92).
+`update.py` looks at the newest hour in each table and downloads only the days that are missing
+(7 days on the first run, at most 92). The log is also written to `logs/update.log`.
+Requests are repeated up to 3 times if the network or the server has a short problem.
+
+The steps can also be run one by one:
+
+```
+python3 src/extract.py --past-days 30   # raw JSON to data/raw/
+python3 src/transform.py                # clean the data and print a summary
+python3 src/load.py                     # load the raw files into data/air_quality.db
+python3 src/weather.py --past-days 11   # weather into the second table
+```
+
+## Database
+
+SQLite file `data/air_quality.db` (not stored in the repository, created on the first run):
+
+| Table | Columns | Primary key |
+|---|---|---|
+| `air_quality` | time, pollutant, value, unit, loaded_at | (time, pollutant) |
+| `weather` | time, variable, value, unit, loaded_at | (time, variable) |
+
+Loading the same hour twice replaces the row, so repeated runs never create duplicates.
