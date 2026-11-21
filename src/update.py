@@ -39,9 +39,13 @@ def days_to_fetch(conn, table, today=None):
     return max(1, min((today - latest_day).days + 1, MAX_DAYS))
 
 
-def update_dataset(name, conn, table, fetch, save_raw, transform_fn, load_fn):
-    """One dataset: decide how many days, download, save the raw answer, clean, load."""
-    days = days_to_fetch(conn, table)
+def update_dataset(name, conn, table, fetch, save_raw, transform_fn, load_fn, days=None):
+    """One dataset: decide how many days, download, save the raw answer, clean, load.
+
+    days=None means "only what is missing"; a number forces that many days (used for the backfill).
+    """
+    if days is None:
+        days = days_to_fetch(conn, table)
     log.info("%s: requesting the last %d day(s)", name, days)
     payload = fetch(days)
     save_raw(payload)
