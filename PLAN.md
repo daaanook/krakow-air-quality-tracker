@@ -22,7 +22,7 @@ Rule: a commit is made only when something real changed (code, analysis, text, t
 ## Phase 2: Exploration (days 8-14)
 | Day | Task | Example commit message |
 |---|---|---|
-| 8 | Backfill as much history as the API allows | `Backfill historical data` |
+| 8 ✅ | Backfill as much history as the API allows | `Backfill historical data` |
 | 9 | Data quality notebook: missing hours, outliers, units | `Add data quality checks` |
 | 10 | PM2.5 by hour of day (chart) | `Add hourly pattern analysis` |
 | 11 | PM2.5 by day of week and by month | `Add weekday and seasonal patterns` |
