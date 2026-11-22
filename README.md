@@ -53,3 +53,6 @@ SQLite file `data/air_quality.db` (not stored in the repository, created on the 
 | `weather` | time, variable, value, unit, loaded_at | (time, variable) |
 
 Loading the same hour twice replaces the row, so repeated runs never create duplicates.
+
+`python3 src/backfill.py` loads the maximum history (92 past days). In my run, air quality starts on
+21 August 2026 and weather on 10 September 2026, so the two tables overlap only from 10 September.
