@@ -21,6 +21,16 @@ Source: [Open-Meteo Air Quality API](https://open-meteo.com/en/docs/air-quality-
 Attribution: CAMS European air quality forecasts, ENSEMBLE data, via Open-Meteo.
 The API is free for non-commercial use; this is a portfolio project.
 
+## Findings so far
+
+**PM2.5 by hour of the day** (93 days, 21 August to 21 November 2026, hourly model values):
+
+- The lowest average is at 13:00 (11.2 μg/m³) and the highest at 21:00 (36.2 μg/m³), more than three times higher.
+- In the evening the mean is clearly above the median (21:00: mean 36.2, median 29.8), so a few very polluted days pull the average up.
+- Limits: this is model output (not sensor measurements), covers only late summer and autumn, and says nothing about winter yet. Explanations such as heating or traffic are not tested here.
+
+![PM2.5 by hour of the day](images/pm25_by_hour.png)
+
 ## How to run
 
 ```
