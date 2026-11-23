@@ -23,7 +23,7 @@ Rule: a commit is made only when something real changed (code, analysis, text, t
 | Day | Task | Example commit message |
 |---|---|---|
 | 8 ✅ | Backfill as much history as the API allows | `Backfill historical data` |
-| 9 | Data quality notebook: missing hours, outliers, units | `Add data quality checks` |
+| 9 ✅ | Data quality notebook: missing hours, outliers, units | `Add data quality checks` |
 | 10 | PM2.5 by hour of day (chart) | `Add hourly pattern analysis` |
 | 11 | PM2.5 by day of week and by month | `Add weekday and seasonal patterns` |
 | 12 | Compare with the WHO guideline and the EU limit (look up the current values and cite the source in the README): share of days above the limits | `Add limit exceedance analysis` |
