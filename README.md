@@ -31,6 +31,19 @@ The API is free for non-commercial use; this is a portfolio project.
 
 ![PM2.5 by hour of the day](images/pm25_by_hour.png)
 
+## Sources of the thresholds
+
+Thresholds are for 24-hour means in μg/m³. Checked on 25 November 2026.
+
+| Pollutant | WHO guideline 2021 | EU limit today (Directive 2008/50/EC) | EU limit from 2030 (Directive (EU) 2024/2881) |
+|---|---|---|---|
+| PM2.5 | 15 | none for 24 h | 25 (max. 18 days per year) |
+| PM10 | 45 | 50 (max. 35 days per year) | 45 (max. 18 days per year) |
+
+- WHO values: WHO Global Air Quality Guidelines 2021, as listed by [DieselNet](https://dieselnet.com/news/2021/09who.php); also [COMEAP statement](https://www.gov.uk/government/publications/comeap-statement-response-to-who-air-quality-guidelines-2021/comeap-statement-response-to-publication-of-the-world-health-organization-air-quality-guidelines-2021) (annual values).
+- EU values: [EEA Air quality status report 2025, benchmark against Directive (EU) 2024/2881](https://www.eea.europa.eu/en/analysis/publications/air-quality-status-report-2025/benchmark-analysis-against-the-standards-in-the-revised-directive-eu-2024-2881); the directive: [EUR-Lex](https://eur-lex.europa.eu/eli/dir/2024/2881/oj).
+- Annual limits are not compared, because the data covers only a few months.
+
 ## How to run
 
 ```
