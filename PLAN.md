@@ -26,7 +26,7 @@ Rule: a commit is made only when something real changed (code, analysis, text, t
 | 9 ✅ | Data quality notebook: missing hours, outliers, units | `Add data quality checks` |
 | 10 ✅ | PM2.5 by hour of day (chart) | `Add hourly pattern analysis` |
 | 11 ✅ | PM2.5 by day of week and by month | `Add weekday and seasonal patterns` |
-| 12 | Compare with the WHO guideline and the EU limit (look up the current values and cite the source in the README): share of days above the limits | `Add limit exceedance analysis` |
+| 12 ✅ | Compare with the WHO guideline and the EU limit (look up the current values and cite the source in the README): share of days above the limits | `Add limit exceedance analysis` |
 | 13 | Relationship with weather: wind and temperature vs PM2.5 | `Add weather correlation` |
 | 14 | Clean the notebook, write the first findings in the README, journal entry for week 2 | `Add first findings` |
 
